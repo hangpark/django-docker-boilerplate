@@ -1,0 +1,14 @@
+{% extends 'error/base.jinja' %}
+
+{% block error_title %}
+{{ _("Not Authorized.") }}
+{% endblock %}
+
+{% block error_message %}
+{{ _("You don't have a permission to access this page. Please login with authorized account or contact administrator.") }}
+{% endblock %}
+
+{% block error_button %}
+<a class="btn btn-default btn-lg" href="/">{{ _("Main Page") }}</a>
+<a class="btn btn-default btn-lg" href="/user/login/">{{ _("Login") }}</a>
+{% endblock %}

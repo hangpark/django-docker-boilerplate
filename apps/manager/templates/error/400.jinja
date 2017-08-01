@@ -1,0 +1,13 @@
+{% extends 'error/base.jinja' %}
+
+{% block error_title %}
+{{ _("Invalid request.") }}
+{% endblock %}
+
+{% block error_message %}
+{{ _("Please make sure your request.) }}
+{% endblock %}
+
+{% block error_button %}
+<a class="btn btn-default btn-lg" href="/">{{ _("Main Page") }}</a>
+{% endblock %}
