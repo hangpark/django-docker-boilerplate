@@ -116,3 +116,6 @@ ENV/
 
 ### Nginx ###
 nginx.conf
+
+# Local file
+local/
