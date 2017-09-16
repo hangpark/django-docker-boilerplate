@@ -1,4 +1,4 @@
-from exampleproject.settings.base import *
+from kaistrule.settings.base import *
 
 DEBUG = True
 
@@ -13,3 +13,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# Static files
+
+LOCAL_DIR = os.path.join(BASE_DIR, 'local')
+
+STATIC_ROOT = os.path.join(LOCAL_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(LOCAL_DIR, 'media')

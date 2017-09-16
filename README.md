@@ -1,6 +1,8 @@
 # Boilerplate for Django with Docker
 
-## Django
+## Specification
+
+### Django
 
 * **Internalization** - django-modeltranslation
 * **Localization** - Custom middleware
@@ -9,15 +11,15 @@
 * **Database Connector** - PyMySQL
 * **Document** - Sphinx
 
-## Frontend
+### Frontend
 
 * **Package Manager** - NPM, Bower
 * **Build System** - gulp.js
 * **Libraries** jQuery, Bootstrap-sass, Font Awesome
 
-## Docker
+### Docker
 
-* Dockerfile is given. Just build it!
+* `Dockerfile` is given. Just build it!
 
 ## How to setup your own project in 10 steps
 
@@ -117,4 +119,86 @@ Does it works?
 $ git init
 $ git add .
 $ git commit -m "Initial commit"
+```
+
+## How to run not using Docker in 10 steps
+
+This boilerplate has two setting files for **local** and **production**, respectively and you can configure it inside `{{your-proj-name}}.settings` package. They're sharing common settings in `{{your-proj-name}}.settings.base`.
+
+To run your project without docker (perhaps on your local machine), just follow few steps below.
+
+From now on, we assume that you've done up to **step 3** above already.
+
+**4. Install dependencies for back- and front-end.**
+
+```sh
+$ pip install -r requirements.txt
+$ npm install
+$ bower install
+```
+
+**5. Packaging front-end sources.**
+
+```sh
+$ gulp
+```
+
+If `gulp` is not founded globally, run following command instead:
+
+```sh
+$ ./node_modules/gulp/bin/gulp.js
+```
+
+**6. Compile documentation** *(Optional to whom not need docs)*
+
+```sh
+$ cd docs
+$ make html
+```
+
+**7. Setting up Django project**
+
+On your project's root directory,
+
+```sh
+$ export DJANGO_SETTINGS_MODULE={{your-proj-name}}.settings.local
+$ python manage.py migrate
+$ python manage.py collectstatic
+```
+
+Of course, you can specify setting files explicitly if you want like
+
+```sh
+$ python manage.py {{command}} --settings={{your-proj-name}}.settings.local
+```
+
+**8. Run server**
+
+```sh
+$ python manage.py runserver
+```
+
+**9. Check `localhost` in your browser.**
+
+- http://localhost:8000/
+
+Does it works?
+
+**10. Develop your project!**
+
+For stylesheets, you may want to see `./static/src/scss/*` which uses Bootstrap-sass that you can freely modify.
+
+For javascripts, add your code in `./static/src/js`.
+
+As we've done above, you can update your front-end sources via
+
+```sh
+$ gulp
+$ python manage.py
+```
+
+more shortly,
+
+```sh
+$ gulp && ./manage.py --no-input
 ```
