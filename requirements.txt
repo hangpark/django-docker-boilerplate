@@ -2,7 +2,7 @@ alabaster==0.7.10
 Babel==2.4.0
 certifi==2017.7.27.1
 chardet==3.0.4
-Django==1.11.3
+Django==2.2.24
 django-jinja==2.3.1
 django-modeltranslation==0.12.1
 docutils==0.13.1
